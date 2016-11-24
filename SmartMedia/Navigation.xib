@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <navigationController id="ksy-Hi-j3h">
-            <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hmm-S8-otW">
+            <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hmm-S8-otW">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
             </navigationBar>
