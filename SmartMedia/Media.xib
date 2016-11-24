@@ -11,34 +11,35 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediaController" customModule="SmartMedia" customModuleProvider="target">
             <connections>
-                <outlet property="listSound" destination="lvX-Ci-rih" id="CdG-s2-RV5"/>
-                <outlet property="view" destination="iN0-l3-epB" id="0se-T1-brR"/>
+                <outlet property="addSound" destination="f79-gd-q7P" id="6su-sr-bkE"/>
+                <outlet property="listSound" destination="7zL-76-OiQ" id="TpX-eX-H4H"/>
+                <outlet property="view" destination="Dz4-Xi-bdR" id="Tbx-lQ-NQG"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="Dz4-Xi-bdR">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lvX-Ci-rih">
-                    <rect key="frame" x="16" y="147" width="343" height="500"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7zL-76-OiQ">
+                    <rect key="frame" x="0.0" y="149" width="375" height="518"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pqs-5A-7v9">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f79-gd-q7P">
+                    <rect key="frame" x="313" y="77" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="lvX-Ci-rih" secondAttribute="bottom" constant="20" id="7xV-aA-0gQ"/>
-                <constraint firstAttribute="trailing" secondItem="lvX-Ci-rih" secondAttribute="trailing" constant="16" id="FHA-6B-6cU"/>
-                <constraint firstItem="lvX-Ci-rih" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="PxN-ta-XEp"/>
-                <constraint firstItem="lvX-Ci-rih" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="147" id="fjR-wl-5K2"/>
+                <constraint firstAttribute="trailing" secondItem="7zL-76-OiQ" secondAttribute="trailing" id="G5C-2z-q8S"/>
+                <constraint firstAttribute="bottom" secondItem="7zL-76-OiQ" secondAttribute="bottom" id="GHp-e1-6cb"/>
+                <constraint firstItem="7zL-76-OiQ" firstAttribute="top" secondItem="Dz4-Xi-bdR" secondAttribute="top" constant="149" id="J3c-mH-Pkk"/>
+                <constraint firstAttribute="trailing" secondItem="f79-gd-q7P" secondAttribute="trailing" constant="16" id="nLe-As-LOR"/>
+                <constraint firstItem="7zL-76-OiQ" firstAttribute="leading" secondItem="Dz4-Xi-bdR" secondAttribute="leading" id="pC1-7b-V2b"/>
+                <constraint firstItem="7zL-76-OiQ" firstAttribute="top" secondItem="f79-gd-q7P" secondAttribute="bottom" constant="42" id="t5r-h9-hkw"/>
             </constraints>
-            <point key="canvasLocation" x="32.5" y="63.5"/>
+            <point key="canvasLocation" x="-53.5" y="-71.5"/>
         </view>
     </objects>
 </document>

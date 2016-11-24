@@ -9,72 +9,85 @@
 import Foundation
 import UIKit
 
-class MediaController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // @IBOutlet weak var listFilm: UITableView!
-    // var movies:[Results] = []
-    @IBOutlet weak var listSound: UICollectionView!
+    @IBOutlet weak var listSound: UITableView!
+    @IBOutlet weak var addSound: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "SmartMedia"
+        
+        
+        // goForm.setTitle("Ajouter un film", for: .normal)
+        
+        
         listSound.dataSource = self
         listSound.delegate = self
-        listSound.register(UINib(nibName: "MediaCell", bundle: nil), forCellWithReuseIdentifier: "soundCell");
-        /*
-         listFilm.dataSource = self
-         listFilm.delegate = self
-         listFilm.register(UINib(nibName: "FilmCell", bundle: nil), forCellReuseIdentifier: "filmCell")
-        */
+        listSound.register(UINib(nibName: "MediaCell", bundle: nil), forCellReuseIdentifier: "soundCell")
+        
+        // self.listFilm.rowHeight = 130
+        // self.listFilm.separatorStyle = .none
+        
+        // fetchFilms()
+        /* if (self.movies.count == 0) {
+            yarr.text = "Yarr, mousaillon !"
+        } */
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // code
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // self.movies = []
+        // fetchFilms()
+        // self.listFilm.reloadData()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // code
-        let item = collectionView.dequeueReusableCell(withReuseIdentifier: "soundCell", for: indexPath) as! MediaCellController;
-        item.label.text = "foo";
+    /* func fetchFilms() {
+        let request = NSFetchRequest<Movie>(entityName: "Movie")
+        let storeResult = try? self.context?.execute(request) as! NSAsynchronousFetchResult<Movie>
         
-        return item;
+        for film in (storeResult?.finalResult)! {
+            let r = Results(
+                title: film.title!,
+                poster: film.poster!,
+                type: film.type!,
+                year: film.year!,
+                imdbID: film.imdbID!)
+            r.plot = film.plot
+            r.director = film.director
+            
+            self.movies.append(r)
+        }
+    } */
+    
+    /* @IBAction func ButtonClick(_ sender: AnyObject) {
+        let vc = TestController();
+        self.navigationController?.pushViewController(vc, animated: true)
+    } */
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "soundCell", for: indexPath) as! MediaCellController;
+        
+        cell.label.text = "foo";
+        /* let film = self.movies[indexPath.row]
+        
+        cell.nom.text = film.title
+        cell.realisateur.text = film.director
+        cell.annee.text = film.year
+        cell.plot.text = film.plot
+        cell.affiche.downloadedFrom(link: (film.poster)) */
+        
+        return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1;
-        
-    }
-/*
-     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell", for: indexPath) as! FilmCellController
-     
-     let film = self.movies[indexPath.row]
-     
-     cell.nom.text = film.title
-     cell.realisateur.text = film.director
-     cell.annee.text = film.year
-     cell.plot.text = film.plot
-     cell.affiche.downloadedFrom(link: (film.poster))
-     
-     return cell
-     }
-     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-     }
-     
-     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "Supprimer"
-     }
-     
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {}
-     }
-     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
-     }
- */
-    
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // return movies.count
+        return 1;
+    }
+
 }
