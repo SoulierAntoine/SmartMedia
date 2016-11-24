@@ -11,6 +11,10 @@
 		41A528B11DE6F9BF0041B675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41A528B01DE6F9BF0041B675 /* Assets.xcassets */; };
 		41A528B41DE6F9BF0041B675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41A528B21DE6F9BF0041B675 /* LaunchScreen.storyboard */; };
 		41A528BC1DE6FAEC0041B675 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41A528BB1DE6FAEC0041B675 /* Localizable.strings */; };
+		41A528C11DE6FC210041B675 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528C01DE6FC210041B675 /* NavigationController.swift */; };
+		41A528C31DE6FCCB0041B675 /* Navigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A528C21DE6FCCB0041B675 /* Navigation.xib */; };
+		41A528C51DE6FD430041B675 /* MediaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528C41DE6FD430041B675 /* MediaController.swift */; };
+		41A528C71DE6FD930041B675 /* Media.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A528C61DE6FD930041B675 /* Media.xib */; };
 		B6793B90B1FE5967CC68C43A /* Pods_SmartMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +25,10 @@
 		41A528B31DE6F9BF0041B675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41A528B51DE6F9BF0041B675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41A528BB1DE6FAEC0041B675 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		41A528C01DE6FC210041B675 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		41A528C21DE6FCCB0041B675 /* Navigation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Navigation.xib; sourceTree = "<group>"; };
+		41A528C41DE6FD430041B675 /* MediaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaController.swift; sourceTree = "<group>"; };
+		41A528C61DE6FD930041B675 /* Media.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Media.xib; sourceTree = "<group>"; };
 		681D5E76FC0B9E91F682AEC1 /* Pods-SmartMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMedia.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia.release.xcconfig"; sourceTree = "<group>"; };
 		F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F348DC7CA5E4EA5E41816C /* Pods-SmartMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMedia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +67,9 @@
 		41A528A81DE6F9BF0041B675 /* SmartMedia */ = {
 			isa = PBXGroup;
 			children = (
+				41A528BE1DE6FB950041B675 /* Extension */,
+				41A528BF1DE6FBD00041B675 /* View */,
+				41A528BD1DE6FB8E0041B675 /* Controller */,
 				41A528A91DE6F9BF0041B675 /* AppDelegate.swift */,
 				41A528B01DE6F9BF0041B675 /* Assets.xcassets */,
 				41A528B21DE6F9BF0041B675 /* LaunchScreen.storyboard */,
@@ -66,6 +77,31 @@
 				41A528BB1DE6FAEC0041B675 /* Localizable.strings */,
 			);
 			path = SmartMedia;
+			sourceTree = "<group>";
+		};
+		41A528BD1DE6FB8E0041B675 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				41A528C01DE6FC210041B675 /* NavigationController.swift */,
+				41A528C41DE6FD430041B675 /* MediaController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		41A528BE1DE6FB950041B675 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		41A528BF1DE6FBD00041B675 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41A528C21DE6FCCB0041B675 /* Navigation.xib */,
+				41A528C61DE6FD930041B675 /* Media.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		5715FB4175183192673A25C8 /* Pods */ = {
@@ -150,6 +186,8 @@
 				41A528B41DE6F9BF0041B675 /* LaunchScreen.storyboard in Resources */,
 				41A528BC1DE6FAEC0041B675 /* Localizable.strings in Resources */,
 				41A528B11DE6F9BF0041B675 /* Assets.xcassets in Resources */,
+				41A528C71DE6FD930041B675 /* Media.xib in Resources */,
+				41A528C31DE6FCCB0041B675 /* Navigation.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +246,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A528C51DE6FD430041B675 /* MediaController.swift in Sources */,
 				41A528AA1DE6F9BF0041B675 /* AppDelegate.swift in Sources */,
+				41A528C11DE6FC210041B675 /* NavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
