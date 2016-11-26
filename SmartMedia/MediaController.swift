@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Material
 import AVFoundation
+import AVKit
 
 class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,6 +18,7 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var addSound: UIButton!
     
     var results:[Sound] = []
+    private var player: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,6 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
         listSound.delegate = self
         listSound.register(UINib(nibName: "MediaCell", bundle: nil), forCellReuseIdentifier: "soundCell")
         
-        private var player: AVAudioPlayer?
         
         self.results = [];
         let url = URL(string: "http://localhost:8080/api/audio/list");
@@ -147,18 +148,20 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
             // if let tempLocalUrl = tempLocalUrl, error == nil {
             if error == nil {
                 // Success
-                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-                    print("Success: \(statusCode)")
-                    print("Response: \(response)")
-                    print("File: \(tempLocalUrl)")
-                }
-         
-                if let musicURL = Bundle.main.url(forResource: "Breaking Away", withExtension: "ogg") {
-                    if let player = try? AVAudioPlayer(contentsOf: musicURL) {
-                        player.play()
-                        player.numberOfLoops = -1 // never stops
-                        self.player = player
+                if (((response as? HTTPURLResponse)?.statusCode) != nil) {
+                    if let musicURL = Bundle.main.url(forResource: "Breaking Away", withExtension: "ogg") {
+                        if let player = try? AVAudioPlayer(contentsOf: musicURL) {
+                            player.play()
+                            // player.numberOfLoops = -1 // never stops
+                            self.player = player
+                        } else {
+                            print("Could not load the player")
+                        }
+                    } else {
+                        print("The file could not be located")
                     }
+                } else {
+                    print("An error occured while retrieving the file from the server")
                 }
                 
                 // do {
