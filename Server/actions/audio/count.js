@@ -12,6 +12,7 @@ module.exports = function(app) {
 		sh.cd(baseDir);
 
 		return res.json({
+            "response":"True",
 			"numberOfFiles":files.length
 		})
     }

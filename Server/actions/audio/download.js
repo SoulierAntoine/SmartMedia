@@ -17,8 +17,6 @@ module.exports = function(app) {
 		var audioDir = "audio_files";
 		var file = baseDir + "/" + audioDir + "/" + requestedFile;
 
-		console.log("file: ", file);
-
 		res.download(file, function (err) {
 			if (err) {
 				return res.json({

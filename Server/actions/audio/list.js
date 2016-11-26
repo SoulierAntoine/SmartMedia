@@ -12,13 +12,26 @@ module.exports = function(app) {
         var baseDir = sh.pwd().stdout;
         var audioDir = "audio_files/";
         sh.cd(audioDir);
-        var files = sh.ls() || [];
+        var sounds = sh.ls() || [];
         sh.cd(baseDir);
 
-        console.log("files: ", files);
+        var files = [];
 
+        sounds.forEach(function(sound) {
+            var file = {};
+
+            // Doesn't remove the separator "."
+            var res = sound.split(/(\.)/);
+            file.extension = res.pop().toLowerCase();
+
+            // Join array without adding anything, and get rid of the last char
+            file.title = res.join("").slice(0, -1);
+            
+            files.push(file);
+        });
 
         return res.json({
+            "response":"True",
             "files":files
         })
     }

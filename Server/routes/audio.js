@@ -1,7 +1,6 @@
 "use strict";
 
-var router      = require('express').Router(),
-    bodyparser  = require('body-parser').json();
+var router      = require('express').Router();
 
 
 module.exports  = function(app) {

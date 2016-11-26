@@ -22,17 +22,18 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7zL-76-OiQ">
-                    <rect key="frame" x="0.0" y="149" width="375" height="518"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="149" width="359" height="518"/>
+                    <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="separatorColor" red="0.066666666669999999" green="0.2156862745" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f79-gd-q7P">
                     <rect key="frame" x="313" y="77" width="46" height="30"/>
                     <state key="normal" title="Button"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="7zL-76-OiQ" secondAttribute="trailing" id="G5C-2z-q8S"/>
+                <constraint firstAttribute="trailing" secondItem="7zL-76-OiQ" secondAttribute="trailing" constant="16" id="G5C-2z-q8S"/>
                 <constraint firstAttribute="bottom" secondItem="7zL-76-OiQ" secondAttribute="bottom" id="GHp-e1-6cb"/>
                 <constraint firstItem="7zL-76-OiQ" firstAttribute="top" secondItem="Dz4-Xi-bdR" secondAttribute="top" constant="149" id="J3c-mH-Pkk"/>
                 <constraint firstAttribute="trailing" secondItem="f79-gd-q7P" secondAttribute="trailing" constant="16" id="nLe-As-LOR"/>

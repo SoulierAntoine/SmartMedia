@@ -17,6 +17,8 @@
 		41A528CF1DE739100041B675 /* Media.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A528CE1DE739100041B675 /* Media.xib */; };
 		41A528D11DE739190041B675 /* MediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A528D01DE739190041B675 /* MediaCell.xib */; };
 		41A528D31DE739970041B675 /* MediaCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528D21DE739970041B675 /* MediaCellController.swift */; };
+		41A528D51DE875490041B675 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528D41DE875490041B675 /* Sound.swift */; };
+		41A528D71DE8985F0041B675 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A528D61DE8985F0041B675 /* AVFoundation.framework */; };
 		B6793B90B1FE5967CC68C43A /* Pods_SmartMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		41A528CE1DE739100041B675 /* Media.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Media.xib; sourceTree = "<group>"; };
 		41A528D01DE739190041B675 /* MediaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaCell.xib; sourceTree = "<group>"; };
 		41A528D21DE739970041B675 /* MediaCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCellController.swift; sourceTree = "<group>"; };
+		41A528D41DE875490041B675 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		41A528D61DE8985F0041B675 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		681D5E76FC0B9E91F682AEC1 /* Pods-SmartMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMedia.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia.release.xcconfig"; sourceTree = "<group>"; };
 		F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F348DC7CA5E4EA5E41816C /* Pods-SmartMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMedia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A528D71DE8985F0041B675 /* AVFoundation.framework in Frameworks */,
 				B6793B90B1FE5967CC68C43A /* Pods_SmartMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +84,7 @@
 				41A528B21DE6F9BF0041B675 /* LaunchScreen.storyboard */,
 				41A528B51DE6F9BF0041B675 /* Info.plist */,
 				41A528BB1DE6FAEC0041B675 /* Localizable.strings */,
+				41A528D41DE875490041B675 /* Sound.swift */,
 			);
 			path = SmartMedia;
 			sourceTree = "<group>";
@@ -122,6 +128,7 @@
 		A79AE465893AB6E0EF97D9E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41A528D61DE8985F0041B675 /* AVFoundation.framework */,
 				F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */,
 			);
 			name = Frameworks;
@@ -253,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A528D51DE875490041B675 /* Sound.swift in Sources */,
 				41A528D31DE739970041B675 /* MediaCellController.swift in Sources */,
 				41A528CD1DE738AE0041B675 /* MediaController.swift in Sources */,
 				41A528AA1DE6F9BF0041B675 /* AppDelegate.swift in Sources */,

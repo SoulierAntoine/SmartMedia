@@ -6,4 +6,4 @@ module.exports = function(app) {
         download: require("./download")(app),
         list: require("./list")(app)
     }
-}
+};
