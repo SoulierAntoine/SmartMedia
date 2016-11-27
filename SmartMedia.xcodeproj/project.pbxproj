@@ -19,6 +19,8 @@
 		41A528D31DE739970041B675 /* MediaCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528D21DE739970041B675 /* MediaCellController.swift */; };
 		41A528D51DE875490041B675 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528D41DE875490041B675 /* Sound.swift */; };
 		41A528D71DE8985F0041B675 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A528D61DE8985F0041B675 /* AVFoundation.framework */; };
+		41A528D91DEB56100041B675 /* UploadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528D81DEB56100041B675 /* UploadController.swift */; };
+		41A528DB1DEB561B0041B675 /* Upload.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A528DA1DEB561B0041B675 /* Upload.xib */; };
 		B6793B90B1FE5967CC68C43A /* Pods_SmartMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		41A528D21DE739970041B675 /* MediaCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCellController.swift; sourceTree = "<group>"; };
 		41A528D41DE875490041B675 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		41A528D61DE8985F0041B675 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		41A528D81DEB56100041B675 /* UploadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadController.swift; sourceTree = "<group>"; };
+		41A528DA1DEB561B0041B675 /* Upload.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Upload.xib; sourceTree = "<group>"; };
 		681D5E76FC0B9E91F682AEC1 /* Pods-SmartMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMedia.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia.release.xcconfig"; sourceTree = "<group>"; };
 		F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F348DC7CA5E4EA5E41816C /* Pods-SmartMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMedia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 				41A528C01DE6FC210041B675 /* NavigationController.swift */,
 				41A528CC1DE738AE0041B675 /* MediaController.swift */,
 				41A528D21DE739970041B675 /* MediaCellController.swift */,
+				41A528D81DEB56100041B675 /* UploadController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 				41A528C21DE6FCCB0041B675 /* Navigation.xib */,
 				41A528CE1DE739100041B675 /* Media.xib */,
 				41A528D01DE739190041B675 /* MediaCell.xib */,
+				41A528DA1DEB561B0041B675 /* Upload.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -201,6 +207,7 @@
 				41A528D11DE739190041B675 /* MediaCell.xib in Resources */,
 				41A528B11DE6F9BF0041B675 /* Assets.xcassets in Resources */,
 				41A528CF1DE739100041B675 /* Media.xib in Resources */,
+				41A528DB1DEB561B0041B675 /* Upload.xib in Resources */,
 				41A528C31DE6FCCB0041B675 /* Navigation.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +269,7 @@
 			files = (
 				41A528D51DE875490041B675 /* Sound.swift in Sources */,
 				41A528D31DE739970041B675 /* MediaCellController.swift in Sources */,
+				41A528D91DEB56100041B675 /* UploadController.swift in Sources */,
 				41A528CD1DE738AE0041B675 /* MediaController.swift in Sources */,
 				41A528AA1DE6F9BF0041B675 /* AppDelegate.swift in Sources */,
 				41A528C11DE6FC210041B675 /* NavigationController.swift in Sources */,

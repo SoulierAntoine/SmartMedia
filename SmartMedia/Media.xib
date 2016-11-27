@@ -27,8 +27,11 @@
                     <color key="separatorColor" red="0.066666666669999999" green="0.2156862745" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f79-gd-q7P">
-                    <rect key="frame" x="313" y="77" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
+                    <rect key="frame" x="268" y="77" width="91" height="30"/>
+                    <state key="normal" title="ADD_SOUND"/>
+                    <connections>
+                        <action selector="addSoundClick:" destination="-1" eventType="touchUpInside" id="B7G-Mp-3hp"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

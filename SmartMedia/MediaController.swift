@@ -19,6 +19,7 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
     
     var results:[Sound] = []
     private var player: AVAudioPlayer?
+    private let DOT:String = "."
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,7 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
                                 self.listSound.reloadData()
                             } else {
                                 // self.erreur.text = "Aucun résultat"
+                                print("The response returned from the server was falsy")
                             }
                         } catch {}
                     } else {
@@ -68,6 +70,8 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
                     }
                  } else {
                     print("No internet connection")
+                    
+                    
                     // self.alert(title: "Tonnerre de Brest !", message: "Aucune connexion internet ! On se croirait abandonné sur une île déserte...")
                  }
             }
@@ -80,6 +84,10 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
         /* if (self.movies.count == 0) {
             yarr.text = "Yarr, mousaillon !"
         } */
+    }
+    @IBAction func addSoundClick(_ sender: Any) {
+         let vc = UploadController();
+         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,48 +142,62 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
             cell.icon.image = Icon.cm.play
         }
         
-        let url = URL(string: "http://localhost:8080/api/audio/download?file=Breaking%20Away.ogg");
-        //let nomEscaped = nom.text!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        // let url = URL(string: "http://www.omdbapi.com/?s=" + nomEscaped! + "&plot=short&r=json")
+        let audioFile = cell.label.text?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
+        let ext = self.results[indexPath.row].ext;
+        let url = URL(string: "http://localhost:8080/api/audio/download?file=" + audioFile! + DOT + ext);
         
+        let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
+        let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioFile! + DOT + ext);
+        let musicPath = documentsDirectoryURL.appendingPathComponent(audioFile!);
         
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig)
-        let request = try! URLRequest(url: url!);
+        print("URL parameter : \((url?.query?.components(separatedBy: ""))!)")
+        print("Home directory URL : \(documentsDirectoryURL.path)")
+        print("Destination directory URL : \(destinationUrl.path)")
         
-        session.downloadTask(with: request) { (tempLocalUrl, response, error) in
+        // if (FileManager.default.fileExists(atPath: destinationUrl.path)) {
+            // The file already exists, play it
+            // print("The file already exists ?")
+        // } else {
+            // Download the file and play it
+       
+            let sessionConfig = URLSessionConfiguration.default
+            let session = URLSession(configuration: sessionConfig)
+            let request = try! URLRequest(url: url!);
         
-            // if let tempLocalUrl = tempLocalUrl, error == nil {
-            if error == nil {
-                // Success
-                if (((response as? HTTPURLResponse)?.statusCode) != nil) {
-                    if let musicURL = Bundle.main.url(forResource: "Breaking Away", withExtension: "ogg") {
-                        if let player = try? AVAudioPlayer(contentsOf: musicURL) {
-                            player.play()
-                            // player.numberOfLoops = -1 // never stops
-                            self.player = player
+            session.downloadTask(with: request) { (tempLocalUrl, response, error) in
+                // TMP, REPLACE BY ==
+                if error != nil {
+                    if ((response as? HTTPURLResponse)?.statusCode) != nil {
+                    
+                        do {
+                            try FileManager.default.copyItem(at: tempLocalUrl!, to: destinationUrl)
+                        // completion()
+                        } catch (let writeError) {
+                            print("error writing file \(destinationUrl) : \(writeError)")
+                        }
+                        
+                        
+                        if let musicURL = Bundle.main.url(forResource: musicPath.path, withExtension: "ogg") {
+                            if let player = try? AVAudioPlayer(contentsOf: musicURL) {
+                                player.prepareToPlay()
+                                player.play()
+                                // player.numberOfLoops = -1 // never stops
+                                self.player = player
+                            } else {
+                                print("Could not load the player")
+                            }
                         } else {
-                            print("Could not load the player")
+                            print("The file could not be located")
                         }
                     } else {
-                        print("The file could not be located")
+                        print("An error occured while retrieving the file from the server")
                     }
                 } else {
-                    print("An error occured while retrieving the file from the server")
+                    print("Error : \(error.debugDescription)")
                 }
-                
-                // do {
-                    // try FileManager.default.copyItem(at: tempLocalUrl!, to: url!)
-                    // completion()
-                // } catch (let writeError) {
-                    //print("error writing file \(localUrl) : \(writeError)")
-                // }
-            } else {
-                print("Error : \(error.debugDescription)")
-            }
-        }.resume()
-        
-    }
+            }.resume()
+        }
+    //}
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! MediaCellController;
