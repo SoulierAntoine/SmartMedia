@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediaController" customModule="SmartMedia" customModuleProvider="target">
             <connections>
                 <outlet property="addSound" destination="f79-gd-q7P" id="6su-sr-bkE"/>
+                <outlet property="imageLogo" destination="69S-4m-Gvr" id="AmA-Dx-f5H"/>
                 <outlet property="listSound" destination="7zL-76-OiQ" id="TpX-eX-H4H"/>
                 <outlet property="view" destination="Dz4-Xi-bdR" id="Tbx-lQ-NQG"/>
             </connections>
@@ -22,28 +23,41 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7zL-76-OiQ">
-                    <rect key="frame" x="0.0" y="149" width="359" height="518"/>
-                    <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="separatorColor" red="0.066666666669999999" green="0.2156862745" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="16" y="312" width="343" height="335"/>
+                    <color key="backgroundColor" red="0.27450980390000002" green="0.53725490200000003" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f79-gd-q7P">
-                    <rect key="frame" x="268" y="77" width="91" height="30"/>
-                    <state key="normal" title="ADD_SOUND"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f79-gd-q7P">
+                    <rect key="frame" x="319" y="77" width="40" height="40"/>
+                    <state key="normal" image="btnSmartMediaPlus">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="addSoundClick:" destination="-1" eventType="touchUpInside" id="B7G-Mp-3hp"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="69S-4m-Gvr">
+                    <rect key="frame" x="94" y="124" width="180" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="8mO-5E-1dI"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.27450980392156865" green="0.53725490196078429" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="69S-4m-Gvr" firstAttribute="leading" secondItem="Dz4-Xi-bdR" secondAttribute="leading" constant="94" id="Ekc-eg-N0R"/>
                 <constraint firstAttribute="trailing" secondItem="7zL-76-OiQ" secondAttribute="trailing" constant="16" id="G5C-2z-q8S"/>
-                <constraint firstAttribute="bottom" secondItem="7zL-76-OiQ" secondAttribute="bottom" id="GHp-e1-6cb"/>
-                <constraint firstItem="7zL-76-OiQ" firstAttribute="top" secondItem="Dz4-Xi-bdR" secondAttribute="top" constant="149" id="J3c-mH-Pkk"/>
+                <constraint firstAttribute="bottom" secondItem="7zL-76-OiQ" secondAttribute="bottom" constant="20" id="GHp-e1-6cb"/>
+                <constraint firstItem="7zL-76-OiQ" firstAttribute="top" secondItem="Dz4-Xi-bdR" secondAttribute="top" constant="312" id="J3c-mH-Pkk"/>
+                <constraint firstItem="69S-4m-Gvr" firstAttribute="centerX" secondItem="Dz4-Xi-bdR" secondAttribute="centerX" constant="-3.5" id="eMx-Tl-WHK"/>
                 <constraint firstAttribute="trailing" secondItem="f79-gd-q7P" secondAttribute="trailing" constant="16" id="nLe-As-LOR"/>
-                <constraint firstItem="7zL-76-OiQ" firstAttribute="leading" secondItem="Dz4-Xi-bdR" secondAttribute="leading" id="pC1-7b-V2b"/>
-                <constraint firstItem="7zL-76-OiQ" firstAttribute="top" secondItem="f79-gd-q7P" secondAttribute="bottom" constant="42" id="t5r-h9-hkw"/>
+                <constraint firstItem="7zL-76-OiQ" firstAttribute="leading" secondItem="Dz4-Xi-bdR" secondAttribute="leading" constant="16" id="pC1-7b-V2b"/>
+                <constraint firstItem="7zL-76-OiQ" firstAttribute="top" secondItem="f79-gd-q7P" secondAttribute="bottom" constant="195" id="t5r-h9-hkw"/>
+                <constraint firstItem="7zL-76-OiQ" firstAttribute="top" secondItem="69S-4m-Gvr" secondAttribute="bottom" constant="8" id="zT3-bz-AG0"/>
             </constraints>
             <point key="canvasLocation" x="-53.5" y="-71.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="btnSmartMediaPlus" width="40" height="40"/>
+    </resources>
 </document>

@@ -6,6 +6,9 @@ var express = require("express"),
     app     = express();
 
 var server  = require("http").createServer(app);
+var fileUpload = require('express-fileupload');
+app.use(fileUpload());
+
 
 require("./configs")(app);
 require("./actions")(app);

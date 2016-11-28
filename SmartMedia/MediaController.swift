@@ -13,81 +13,100 @@ import AVFoundation
 import AVKit
 
 class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    @IBOutlet weak var imageLogo: UIImageView!
     @IBOutlet weak var listSound: UITableView!
     @IBOutlet weak var addSound: UIButton!
     
     var results:[Sound] = []
     private var player: AVAudioPlayer?
     private let DOT:String = "."
+    private let SLASH:String = "/"
+    private let APP_NAME:String = "SmartMedia"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "SmartMedia"
+        self.navigationItem.title = APP_NAME
+        
+        imageLogo.image = #imageLiteral(resourceName: "smartmedia");
+        imageLogo.contentMode = .scaleAspectFit;
         
         listSound.dataSource = self
         listSound.delegate = self
         listSound.register(UINib(nibName: "MediaCell", bundle: nil), forCellReuseIdentifier: "soundCell")
-        
+        listSound.separatorStyle = .none
+
+        // addSound.setTitle(NSLocalizedString("ADD_SOUND", comment: ""), for: .normal)
         
         self.results = [];
+
+        
+        
+        /*******************************/
+        /* Create SmartMedia directory */
+        /*******************************/
+        
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let appFolder = documentsDirectory.appendingPathComponent("SmartMedia")
+        
+        if (!FileManager.default.fileExists(atPath: appFolder.path)) {
+            do {
+                try FileManager.default.createDirectory(atPath: appFolder.path, withIntermediateDirectories: false, attributes: nil)
+            } catch let error as NSError {
+                print("Error creating directory: \(error.localizedDescription)")
+            }
+        }
+        
+        fetchData()
+    }
+    
+    
+    
+    /*******************************/
+    /* Get audio files from server */
+    /*******************************/
+    
+    func fetchData() {
         let url = URL(string: "http://localhost:8080/api/audio/list");
         
         URLSession.shared.dataTask(with: url!) { (d :Data?, r: URLResponse?, e: Error?) in
             DispatchQueue.main.async {
-                 if e == nil {
+                if e == nil {
                     if let data = d {
                         do {
                             let objects = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject];
                             let response = objects["response"] as? String;
-                 
+                            
                             if (response == "True") {
-                                // let files = objects["files"] as! [String];
-                 
-                                /* for file in files {
-                                    print("Title : \(file)");
-                                    self.results.append(file);
-                                } */
-                                
                                 let files = objects["files"] as! [[String:Any]]
                                 
                                 for file in files {
                                     self.results.append(Sound(
                                         title: file["title"] as! String,
-                                        ext: file["extension"] as! String
+                                        ext: file["extension"] as! String,
+                                        isPlaying:false
                                     ));
                                 }
-                 
+                                
                                 self.listSound.reloadData()
                             } else {
-                                // self.erreur.text = "Aucun résultat"
                                 print("The response returned from the server was falsy")
                             }
                         } catch {}
                     } else {
                         print("No data were sent back from the server")
-                        // self.alert(title: "Mille millions de mille sabord !", message: "Aucune donnée n'a été renvoyée par le serveur. On dirait bien que ce trésor restera introuvable !")
                     }
-                 } else {
+                } else {
                     print("No internet connection")
-                    
-                    
-                    // self.alert(title: "Tonnerre de Brest !", message: "Aucune connexion internet ! On se croirait abandonné sur une île déserte...")
-                 }
+                }
             }
-        }.resume();
-        
-        // self.listFilm.rowHeight = 130
-        // self.listFilm.separatorStyle = .none
-        
-        // fetchFilms()
-        /* if (self.movies.count == 0) {
-            yarr.text = "Yarr, mousaillon !"
-        } */
+            }.resume();
     }
+    
+    
     @IBAction func addSoundClick(_ sender: Any) {
-         let vc = UploadController();
-         self.navigationController?.pushViewController(vc, animated: true)
+        let vc = UploadController()
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,12 +133,7 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
             self.movies.append(r)
         }
     } */
-    
-    /* @IBAction func ButtonClick(_ sender: AnyObject) {
-        let vc = TestController();
-        self.navigationController?.pushViewController(vc, animated: true)
-    } */
-    
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "soundCell", for: indexPath) as! MediaCellController;
@@ -127,68 +141,49 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
         
         cell.icon.image = Icon.cm.play;
         cell.label.text = result.title;
+
         // cell.extension.text = result.ext
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // tableView.deselectRow(at: indexPath, animated: true)
         let cell = tableView.cellForRow(at: indexPath) as! MediaCellController
         
         if  (cell.icon.image == Icon.cm.play) {
             cell.icon.image = Icon.cm.pause
+            self.results[indexPath.row].isPlaying = false
         } else {
             cell.icon.image = Icon.cm.play
+            self.results[indexPath.row].isPlaying = true
         }
         
-        let audioFile = cell.label.text?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
+        let audioFile = cell.label.text;
+        let audioFileEncoded = audioFile?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
         let ext = self.results[indexPath.row].ext;
-        let url = URL(string: "http://localhost:8080/api/audio/download?file=" + audioFile! + DOT + ext);
+        let url = URL(string: "http://localhost:8080/api/audio/download?file=" + audioFileEncoded! + DOT + ext);
         
-        let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
-        let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioFile! + DOT + ext);
-        let musicPath = documentsDirectoryURL.appendingPathComponent(audioFile!);
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
+        let destinationURL = documentsDirectory.appendingPathComponent(APP_NAME + SLASH + audioFile! + DOT + ext);
         
-        print("URL parameter : \((url?.query?.components(separatedBy: ""))!)")
-        print("Home directory URL : \(documentsDirectoryURL.path)")
-        print("Destination directory URL : \(destinationUrl.path)")
-        
-        // if (FileManager.default.fileExists(atPath: destinationUrl.path)) {
-            // The file already exists, play it
-            // print("The file already exists ?")
-        // } else {
-            // Download the file and play it
-       
+        if (FileManager.default.fileExists(atPath: destinationURL.path)) {
+            self.playMusic(audioFilePath: destinationURL, row: indexPath.row)
+        } else {
             let sessionConfig = URLSessionConfiguration.default
             let session = URLSession(configuration: sessionConfig)
             let request = try! URLRequest(url: url!);
         
             session.downloadTask(with: request) { (tempLocalUrl, response, error) in
-                // TMP, REPLACE BY ==
-                if error != nil {
+                if error == nil {
                     if ((response as? HTTPURLResponse)?.statusCode) != nil {
                     
                         do {
-                            try FileManager.default.copyItem(at: tempLocalUrl!, to: destinationUrl)
-                        // completion()
+                            try FileManager.default.copyItem(at: tempLocalUrl!, to: destinationURL)
                         } catch (let writeError) {
-                            print("error writing file \(destinationUrl) : \(writeError)")
+                            print("error writing file \(destinationURL) : \(writeError)")
                         }
-                        
-                        
-                        if let musicURL = Bundle.main.url(forResource: musicPath.path, withExtension: "ogg") {
-                            if let player = try? AVAudioPlayer(contentsOf: musicURL) {
-                                player.prepareToPlay()
-                                player.play()
-                                // player.numberOfLoops = -1 // never stops
-                                self.player = player
-                            } else {
-                                print("Could not load the player")
-                            }
-                        } else {
-                            print("The file could not be located")
-                        }
+
+                        self.playMusic(audioFilePath: destinationURL, row: indexPath.row)
                     } else {
                         print("An error occured while retrieving the file from the server")
                     }
@@ -197,15 +192,39 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
                 }
             }.resume()
         }
-    //}
+    }
+    
+    func stopPlayer() {
+        if (self.player != nil) {
+            if (self.player?.isPlaying)! {
+                self.player?.stop()
+            }
+        }
+    }
+    
+    func playMusic(audioFilePath:URL, row:Int) {
+        if (results[row].isPlaying) {
+            stopPlayer()
+        } else {
+            if let player = try? AVAudioPlayer(contentsOf: audioFilePath) {
+                player.prepareToPlay()
+                player.play()
+                self.player = player
+            } else {
+                print("File not found")
+            }
+        }
+    }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! MediaCellController;
         
         if  (cell.icon.image == Icon.cm.pause) {
             cell.icon.image = Icon.cm.play
-            // tableView.deselectRow(at: indexPath, animated: true)
+            self.results[indexPath.row].isPlaying = false
         }
+        
+        stopPlayer()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

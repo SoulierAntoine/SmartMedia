@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UploadController" customModule="SmartMedia" customModuleProvider="target">
             <connections>
-                <outlet property="chooseImage" destination="I59-hh-0tJ" id="sK5-GI-vII"/>
+                <outlet property="chooseSoundLabel" destination="hR3-3q-CdJ" id="zCr-LX-hBf"/>
+                <outlet property="close" destination="phS-cS-whp" id="kEd-Mc-Mts"/>
+                <outlet property="filePicker" destination="ZQh-Mt-3kz" id="FNf-4s-pDZ"/>
                 <outlet property="send" destination="QkF-d6-d9i" id="2Ug-YO-YOy"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jG4-xb-h3W"/>
             </connections>
@@ -21,29 +23,50 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I59-hh-0tJ">
-                    <rect key="frame" x="130" y="177" width="115" height="30"/>
-                    <state key="normal" title="CHOOSE_IMAGE"/>
-                    <connections>
-                        <action selector="clickOnChoose:" destination="-1" eventType="touchUpInside" id="8EW-Pl-UXa"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkF-d6-d9i">
-                    <rect key="frame" x="167" y="242" width="40" height="30"/>
-                    <state key="normal" title="SEND"/>
+                    <rect key="frame" x="160" y="360" width="54" height="42"/>
+                    <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="20"/>
+                    <state key="normal" title="SEND">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="clickOnSend:" destination="-1" eventType="touchUpInside" id="fKA-i7-De2"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE_SOUND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hR3-3q-CdJ">
+                    <rect key="frame" x="112" y="81" width="152" height="27"/>
+                    <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZQh-Mt-3kz">
+                    <rect key="frame" x="0.0" y="110" width="375" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phS-cS-whp" userLabel="Close">
+                    <rect key="frame" x="16" y="30" width="40" height="40"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" image="btnSmartMediaCross">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clickOnClose:" destination="-1" eventType="touchUpInside" id="Yb6-sJ-KWg"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.27450980390000002" green="0.53725490200000003" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="QkF-d6-d9i" firstAttribute="top" secondItem="I59-hh-0tJ" secondAttribute="bottom" constant="35" id="1CU-5g-CYn"/>
-                <constraint firstItem="I59-hh-0tJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="177" id="5w2-p5-hc7"/>
                 <constraint firstItem="QkF-d6-d9i" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DJd-wz-PfM"/>
-                <constraint firstItem="I59-hh-0tJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pNI-pO-78w"/>
-                <constraint firstItem="I59-hh-0tJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="130" id="xjb-o5-LRl"/>
+                <constraint firstItem="phS-cS-whp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="DSp-0C-DTS"/>
+                <constraint firstItem="phS-cS-whp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="JTA-hp-HdM"/>
+                <constraint firstItem="hR3-3q-CdJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="81" id="KCc-br-rtU"/>
+                <constraint firstItem="QkF-d6-d9i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="360" id="SIF-lY-kHl"/>
+                <constraint firstItem="hR3-3q-CdJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vcE-oJ-ETU"/>
             </constraints>
+            <point key="canvasLocation" x="-15.5" y="81.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="btnSmartMediaCross" width="40" height="40"/>
+    </resources>
 </document>

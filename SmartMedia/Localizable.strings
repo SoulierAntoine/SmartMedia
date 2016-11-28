@@ -7,5 +7,6 @@
 */
 
 "APP_NAME" = "SmartMedia" ;
-"CHOOSE_IMAGE" = "Choose image" ;
+"CHOOSE_SOUND" = "Choose sound" ;
 "SEND" = "Send" ;
+"ADD_SOUND" = "Add a sound" ;

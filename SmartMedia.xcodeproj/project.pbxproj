@@ -10,7 +10,6 @@
 		41A528AA1DE6F9BF0041B675 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528A91DE6F9BF0041B675 /* AppDelegate.swift */; };
 		41A528B11DE6F9BF0041B675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41A528B01DE6F9BF0041B675 /* Assets.xcassets */; };
 		41A528B41DE6F9BF0041B675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41A528B21DE6F9BF0041B675 /* LaunchScreen.storyboard */; };
-		41A528BC1DE6FAEC0041B675 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41A528BB1DE6FAEC0041B675 /* Localizable.strings */; };
 		41A528C11DE6FC210041B675 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528C01DE6FC210041B675 /* NavigationController.swift */; };
 		41A528C31DE6FCCB0041B675 /* Navigation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A528C21DE6FCCB0041B675 /* Navigation.xib */; };
 		41A528CD1DE738AE0041B675 /* MediaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528CC1DE738AE0041B675 /* MediaController.swift */; };
@@ -21,6 +20,7 @@
 		41A528D71DE8985F0041B675 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A528D61DE8985F0041B675 /* AVFoundation.framework */; };
 		41A528D91DEB56100041B675 /* UploadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528D81DEB56100041B675 /* UploadController.swift */; };
 		41A528DB1DEB561B0041B675 /* Upload.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A528DA1DEB561B0041B675 /* Upload.xib */; };
+		41A528DD1DEB5F810041B675 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41A528BB1DE6FAEC0041B675 /* Localizable.strings */; };
 		B6793B90B1FE5967CC68C43A /* Pods_SmartMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,8 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				41A528C01DE6FC210041B675 /* NavigationController.swift */,
-				41A528CC1DE738AE0041B675 /* MediaController.swift */,
 				41A528D21DE739970041B675 /* MediaCellController.swift */,
+				41A528CC1DE738AE0041B675 /* MediaController.swift */,
 				41A528D81DEB56100041B675 /* UploadController.swift */,
 			);
 			name = Controller;
@@ -203,9 +203,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				41A528B41DE6F9BF0041B675 /* LaunchScreen.storyboard in Resources */,
-				41A528BC1DE6FAEC0041B675 /* Localizable.strings in Resources */,
 				41A528D11DE739190041B675 /* MediaCell.xib in Resources */,
 				41A528B11DE6F9BF0041B675 /* Assets.xcassets in Resources */,
+				41A528DD1DEB5F810041B675 /* Localizable.strings in Resources */,
 				41A528CF1DE739100041B675 /* Media.xib in Resources */,
 				41A528DB1DEB561B0041B675 /* Upload.xib in Resources */,
 				41A528C31DE6FCCB0041B675 /* Navigation.xib in Resources */,

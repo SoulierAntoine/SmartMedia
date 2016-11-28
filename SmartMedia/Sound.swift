@@ -11,10 +11,12 @@ import Foundation
 class Sound:NSObject {
     var title:String;
     var ext:String;
+    var isPlaying:Bool
     
-    init(title:String, ext:String) {
+    init(title:String, ext:String, isPlaying:Bool) {
         self.title = title;
         self.ext = ext;
+        self.isPlaying = isPlaying
     }
     
     override var description: String {
