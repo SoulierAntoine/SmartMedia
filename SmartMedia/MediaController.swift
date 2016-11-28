@@ -55,8 +55,6 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
                 print("Error creating directory: \(error.localizedDescription)")
             }
         }
-        
-        fetchData()
     }
     
     
@@ -111,30 +109,12 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // self.movies = []
-        // fetchFilms()
-        // self.listFilm.reloadData()
+        self.results = []
+        fetchData()
+        self.listSound.reloadData()
     }
-    
-    /* func fetchFilms() {
-        let request = NSFetchRequest<Movie>(entityName: "Movie")
-        let storeResult = try? self.context?.execute(request) as! NSAsynchronousFetchResult<Movie>
-        
-        for film in (storeResult?.finalResult)! {
-            let r = Results(
-                title: film.title!,
-                poster: film.poster!,
-                type: film.type!,
-                year: film.year!,
-                imdbID: film.imdbID!)
-            r.plot = film.plot
-            r.director = film.director
-            
-            self.movies.append(r)
-        }
-    } */
 
-    
+    // Load tableview cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "soundCell", for: indexPath) as! MediaCellController;
         let result = self.results[indexPath.row]
@@ -142,10 +122,9 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
         cell.icon.image = Icon.cm.play;
         cell.label.text = result.title;
 
-        // cell.extension.text = result.ext
-
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! MediaCellController
@@ -158,14 +137,17 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
             self.results[indexPath.row].isPlaying = true
         }
         
+        // Set remote server URL
         let audioFile = cell.label.text;
         let audioFileEncoded = audioFile?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
         let ext = self.results[indexPath.row].ext;
         let url = URL(string: "http://localhost:8080/api/audio/download?file=" + audioFileEncoded! + DOT + ext);
         
+        // Set local destination URL
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
         let destinationURL = documentsDirectory.appendingPathComponent(APP_NAME + SLASH + audioFile! + DOT + ext);
         
+        // If file already exists, don't download and just play it
         if (FileManager.default.fileExists(atPath: destinationURL.path)) {
             self.playMusic(audioFilePath: destinationURL, row: indexPath.row)
         } else {
@@ -173,6 +155,7 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
             let session = URLSession(configuration: sessionConfig)
             let request = try! URLRequest(url: url!);
         
+            // Download sound in a temp file, and move it to the user's fs
             session.downloadTask(with: request) { (tempLocalUrl, response, error) in
                 if error == nil {
                     if ((response as? HTTPURLResponse)?.statusCode) != nil {
@@ -202,7 +185,9 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
+    
     func playMusic(audioFilePath:URL, row:Int) {
+        // If the row selected is the same and is playing, stop the player
         if (results[row].isPlaying) {
             stopPlayer()
         } else {
@@ -224,6 +209,7 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
             self.results[indexPath.row].isPlaying = false
         }
         
+        // Stop player when switching between rows
         stopPlayer()
     }
 
