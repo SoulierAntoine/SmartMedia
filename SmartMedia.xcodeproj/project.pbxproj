@@ -23,7 +23,6 @@
 		41A528D91DEB56100041B675 /* UploadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528D81DEB56100041B675 /* UploadController.swift */; };
 		41A528DB1DEB561B0041B675 /* Upload.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A528DA1DEB561B0041B675 /* Upload.xib */; };
 		41A528DD1DEB5F810041B675 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41A528BB1DE6FAEC0041B675 /* Localizable.strings */; };
-		4C3B040783AFE0D2A4075F64 /* Pods_SmartMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF39B7F5FC81AE876F247F00 /* Pods_SmartMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,9 +56,6 @@
 		41A528D61DE8985F0041B675 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		41A528D81DEB56100041B675 /* UploadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadController.swift; sourceTree = "<group>"; };
 		41A528DA1DEB561B0041B675 /* Upload.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Upload.xib; sourceTree = "<group>"; };
-		681D5E76FC0B9E91F682AEC1 /* Pods-SmartMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMedia.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia.release.xcconfig"; sourceTree = "<group>"; };
-		BF39B7F5FC81AE876F247F00 /* Pods_SmartMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8F348DC7CA5E4EA5E41816C /* Pods-SmartMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMedia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +71,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				41A528D71DE8985F0041B675 /* AVFoundation.framework in Frameworks */,
-				4C3B040783AFE0D2A4075F64 /* Pods_SmartMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +108,6 @@
 				41A528A81DE6F9BF0041B675 /* SmartMedia */,
 				414682CA1E20FFE500A71CD1 /* SmartMediaTests */,
 				41A528A71DE6F9BF0041B675 /* Products */,
-				5715FB4175183192673A25C8 /* Pods */,
 				A79AE465893AB6E0EF97D9E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -173,20 +167,10 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		5715FB4175183192673A25C8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F8F348DC7CA5E4EA5E41816C /* Pods-SmartMedia.debug.xcconfig */,
-				681D5E76FC0B9E91F682AEC1 /* Pods-SmartMedia.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		A79AE465893AB6E0EF97D9E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				41A528D61DE8985F0041B675 /* AVFoundation.framework */,
-				BF39B7F5FC81AE876F247F00 /* Pods_SmartMedia.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,12 +200,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41A528B81DE6F9BF0041B675 /* Build configuration list for PBXNativeTarget "SmartMedia" */;
 			buildPhases = (
-				4AFC0329CDC49F58E2E5ACA5 /* [CP] Check Pods Manifest.lock */,
 				41A528A21DE6F9BF0041B675 /* Sources */,
 				41A528A31DE6F9BF0041B675 /* Frameworks */,
 				41A528A41DE6F9BF0041B675 /* Resources */,
-				687B3A6625733514537959FF /* [CP] Embed Pods Frameworks */,
-				951A83AC6B742F38CBAEA685 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,54 +276,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4AFC0329CDC49F58E2E5ACA5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		687B3A6625733514537959FF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		951A83AC6B742F38CBAEA685 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		414682C51E20FFE500A71CD1 /* Sources */ = {
@@ -512,7 +445,6 @@
 		};
 		41A528B91DE6F9BF0041B675 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8F348DC7CA5E4EA5E41816C /* Pods-SmartMedia.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -526,7 +458,6 @@
 		};
 		41A528BA1DE6F9BF0041B675 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 681D5E76FC0B9E91F682AEC1 /* Pods-SmartMedia.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

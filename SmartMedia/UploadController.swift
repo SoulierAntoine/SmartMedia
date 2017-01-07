@@ -52,8 +52,8 @@ class UploadController : UIViewController {
         noSound.isHidden = true
         noSound.text = "You don't have any sound yet !"
 
-        close.width = 40
-        close.height = 40
+        // close.width = 40
+        // close.height = 40
         
         chooseSoundLabel.text = NSLocalizedString("CHOOSE_SOUND", comment: "")
         send.setTitle(NSLocalizedString("SEND", comment: ""), for: .normal)
