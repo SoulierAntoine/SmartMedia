@@ -16,10 +16,7 @@ module.exports = function(app) {
         }
 
         var file = req.files.smartMediaFile;
-        console.log("file: ", file);
 
-
-        // file.mv("/audio_files/" + file.name, function(err) {
         file.mv("audio_files/" + file.name, function(err) {
             if (err) {
                 res.status(500).send(err);
