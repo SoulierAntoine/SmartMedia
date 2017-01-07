@@ -9,54 +9,19 @@
 import Foundation
 import UIKit
 
-class UploadController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+extension UploadController: UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var send: UIButton!
-    @IBOutlet weak var close: UIButton!
-    @IBOutlet weak var chooseSoundLabel: UILabel!
-    @IBOutlet weak var filePicker: UIPickerView!
-    
-    private var files:[String] = [String]()
-    private let APP_NAME:String = "SmartMedia"
-    private var choosenFile:String = ""
-    
-    override func viewDidLoad() {
-        super.viewDidLoad();
-        // close.setTitle("", for: .normal)
-        // close.setImage(#imageLiteral(resourceName: "btnClose"), for: .normal)
-        // close.contentMode = .scaleToFill
-        close.width = 40
-        close.height = 40
-        
-        chooseSoundLabel.text = NSLocalizedString("CHOOSE_SOUND", comment: "")
-        send.setTitle(NSLocalizedString("SEND", comment: ""), for: .normal)
-        
-        self.filePicker.delegate = self
-        self.filePicker.dataSource = self
-        
-        self.filePicker.tintColor = UIColor.white
-        
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let appFolder = documentsDirectory.appendingPathComponent(APP_NAME);
-        do {
-            self.files = try FileManager.default.contentsOfDirectory(atPath: appFolder.path)
-        } catch let error as NSError {
-            print(error.description)
-        }
-        
-        self.choosenFile = files[0]
-    }
-    
+    // Set the color of the text in the picker view
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         return NSAttributedString(string: files[row], attributes: [NSForegroundColorAttributeName: UIColor.white])
     }
     
-    // Nb of column
+    // Set the number of column
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    // Nb of rows
+    // Set the number of rows
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return files.count
     }
@@ -69,6 +34,55 @@ class UploadController : UIViewController, UIPickerViewDelegate, UIPickerViewDat
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.choosenFile = files[row]
     }
+}
+
+class UploadController : UIViewController {
+    
+    @IBOutlet weak var send: UIButton!
+    @IBOutlet weak var close: UIButton!
+    @IBOutlet weak var chooseSoundLabel: UILabel!
+    @IBOutlet weak var filePicker: UIPickerView!
+    @IBOutlet weak var noSound: UILabel!
+    
+    fileprivate var files:[String] = [String]()
+    fileprivate var choosenFile:String = ""
+    
+    override func viewDidLoad() {
+        super.viewDidLoad();
+        noSound.isHidden = true
+        noSound.text = "You don't have any sound yet !"
+
+        close.width = 40
+        close.height = 40
+        
+        chooseSoundLabel.text = NSLocalizedString("CHOOSE_SOUND", comment: "")
+        send.setTitle(NSLocalizedString("SEND", comment: ""), for: .normal)
+        
+        self.filePicker.delegate = self
+        self.filePicker.dataSource = self
+        
+        self.filePicker.tintColor = UIColor.white
+        
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let appFolder = documentsDirectory.appendingPathComponent(Constants.APP_NAME);
+        do {
+            self.files = try FileManager.default.contentsOfDirectory(atPath: appFolder.path)
+        } catch let error as NSError {
+            print(error.description)
+        }
+        
+        
+        if (self.files.count > 0) {
+            self.choosenFile = files[0]
+        } else {
+            filePicker.isHidden = true
+            send.isHidden = true
+            chooseSoundLabel.isHidden = true
+            noSound.isHidden = false
+        }
+    }
+    
+
     
     @IBAction func clickOnClose(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -77,7 +91,7 @@ class UploadController : UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     @IBAction func clickOnSend(_ sender: Any) {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let appFolder = documentsDirectory.appendingPathComponent(APP_NAME);
+        let appFolder = documentsDirectory.appendingPathComponent(Constants.APP_NAME);
         
         let filePath = appFolder.appendingPathComponent(choosenFile)
         let boundary = generateBoundaryString()

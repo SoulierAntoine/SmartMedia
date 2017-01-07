@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOb-qQ-Xb1" userLabel="title">
-                        <rect key="frame" x="19" y="30.5" width="312" height="29.5"/>
+                        <rect key="frame" x="19" y="30.5" width="289" height="29.5"/>
                         <fontDescription key="fontDescription" name="SinhalaSangamMN-Bold" family="Sinhala Sangam MN" pointSize="20"/>
                         <color key="textColor" red="0.27450980392156865" green="0.53725490196078429" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -35,9 +35,9 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="EOb-qQ-Xb1" secondAttribute="trailing" constant="43" id="3uK-mG-ZAO"/>
                     <constraint firstItem="Bks-oT-oea" firstAttribute="centerY" secondItem="EOb-qQ-Xb1" secondAttribute="centerY" id="4l0-so-aNx"/>
-                    <constraint firstItem="Bks-oT-oea" firstAttribute="centerX" secondItem="hvC-vL-crj" secondAttribute="centerX" constant="150.5" id="MkF-JO-F4y"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Bks-oT-oea" secondAttribute="trailing" constant="19" id="NhA-Fg-XI5"/>
+                    <constraint firstItem="Bks-oT-oea" firstAttribute="leading" secondItem="EOb-qQ-Xb1" secondAttribute="trailing" constant="20" id="Z6w-xZ-wVZ"/>
                     <constraint firstItem="EOb-qQ-Xb1" firstAttribute="leading" secondItem="hvC-vL-crj" secondAttribute="leadingMargin" constant="11" id="htM-yg-Z4s"/>
                     <constraint firstItem="EOb-qQ-Xb1" firstAttribute="centerY" secondItem="hvC-vL-crj" secondAttribute="centerY" id="xdP-5y-7g7"/>
                 </constraints>

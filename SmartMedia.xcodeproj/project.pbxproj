@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		414682CC1E20FFE500A71CD1 /* SmartMediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414682CB1E20FFE500A71CD1 /* SmartMediaTests.swift */; };
+		414682D51E215F4B00A71CD1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414682D41E215F4B00A71CD1 /* Constants.swift */; };
 		41A528AA1DE6F9BF0041B675 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528A91DE6F9BF0041B675 /* AppDelegate.swift */; };
 		41A528B11DE6F9BF0041B675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41A528B01DE6F9BF0041B675 /* Assets.xcassets */; };
 		41A528B41DE6F9BF0041B675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41A528B21DE6F9BF0041B675 /* LaunchScreen.storyboard */; };
@@ -22,7 +23,7 @@
 		41A528D91DEB56100041B675 /* UploadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528D81DEB56100041B675 /* UploadController.swift */; };
 		41A528DB1DEB561B0041B675 /* Upload.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41A528DA1DEB561B0041B675 /* Upload.xib */; };
 		41A528DD1DEB5F810041B675 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41A528BB1DE6FAEC0041B675 /* Localizable.strings */; };
-		B6793B90B1FE5967CC68C43A /* Pods_SmartMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */; };
+		4C3B040783AFE0D2A4075F64 /* Pods_SmartMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF39B7F5FC81AE876F247F00 /* Pods_SmartMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		414682C91E20FFE500A71CD1 /* SmartMediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartMediaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		414682CB1E20FFE500A71CD1 /* SmartMediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartMediaTests.swift; sourceTree = "<group>"; };
 		414682CD1E20FFE500A71CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		414682D41E215F4B00A71CD1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		41A528A61DE6F9BF0041B675 /* SmartMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A528A91DE6F9BF0041B675 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41A528B01DE6F9BF0041B675 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 		41A528D81DEB56100041B675 /* UploadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadController.swift; sourceTree = "<group>"; };
 		41A528DA1DEB561B0041B675 /* Upload.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Upload.xib; sourceTree = "<group>"; };
 		681D5E76FC0B9E91F682AEC1 /* Pods-SmartMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMedia.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia.release.xcconfig"; sourceTree = "<group>"; };
-		F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF39B7F5FC81AE876F247F00 /* Pods_SmartMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F348DC7CA5E4EA5E41816C /* Pods-SmartMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMedia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMedia/Pods-SmartMedia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,19 +75,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				41A528D71DE8985F0041B675 /* AVFoundation.framework in Frameworks */,
-				B6793B90B1FE5967CC68C43A /* Pods_SmartMedia.framework in Frameworks */,
+				4C3B040783AFE0D2A4075F64 /* Pods_SmartMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		414682C11E20FF2900A71CD1 /* Bean */ = {
+		414682C11E20FF2900A71CD1 /* Beans */ = {
 			isa = PBXGroup;
 			children = (
 				41A528D41DE875490041B675 /* Sound.swift */,
 			);
-			name = Bean;
+			name = Beans;
 			sourceTree = "<group>";
 		};
 		414682CA1E20FFE500A71CD1 /* SmartMediaTests */ = {
@@ -95,6 +97,14 @@
 				414682CD1E20FFE500A71CD1 /* Info.plist */,
 			);
 			path = SmartMediaTests;
+			sourceTree = "<group>";
+		};
+		414682D31E215F3200A71CD1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				414682D41E215F4B00A71CD1 /* Constants.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		41A5289D1DE6F9BF0041B675 = {
@@ -120,7 +130,8 @@
 		41A528A81DE6F9BF0041B675 /* SmartMedia */ = {
 			isa = PBXGroup;
 			children = (
-				414682C11E20FF2900A71CD1 /* Bean */,
+				414682D31E215F3200A71CD1 /* Utils */,
+				414682C11E20FF2900A71CD1 /* Beans */,
 				41A528BE1DE6FB950041B675 /* Extension */,
 				41A528BF1DE6FBD00041B675 /* View */,
 				41A528BD1DE6FB8E0041B675 /* Controller */,
@@ -175,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				41A528D61DE8985F0041B675 /* AVFoundation.framework */,
-				F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */,
+				BF39B7F5FC81AE876F247F00 /* Pods_SmartMedia.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -350,6 +361,7 @@
 				41A528D31DE739970041B675 /* MediaCellController.swift in Sources */,
 				41A528D91DEB56100041B675 /* UploadController.swift in Sources */,
 				41A528CD1DE738AE0041B675 /* MediaController.swift in Sources */,
+				414682D51E215F4B00A71CD1 /* Constants.swift in Sources */,
 				41A528AA1DE6F9BF0041B675 /* AppDelegate.swift in Sources */,
 				41A528C11DE6FC210041B675 /* NavigationController.swift in Sources */,
 			);
@@ -536,6 +548,7 @@
 				414682D21E20FFE500A71CD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41A528A11DE6F9BF0041B675 /* Build configuration list for PBXProject "SmartMedia" */ = {
 			isa = XCConfigurationList;
