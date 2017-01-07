@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		414682CC1E20FFE500A71CD1 /* SmartMediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414682CB1E20FFE500A71CD1 /* SmartMediaTests.swift */; };
 		41A528AA1DE6F9BF0041B675 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A528A91DE6F9BF0041B675 /* AppDelegate.swift */; };
 		41A528B11DE6F9BF0041B675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41A528B01DE6F9BF0041B675 /* Assets.xcassets */; };
 		41A528B41DE6F9BF0041B675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41A528B21DE6F9BF0041B675 /* LaunchScreen.storyboard */; };
@@ -24,7 +25,20 @@
 		B6793B90B1FE5967CC68C43A /* Pods_SmartMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57EC571C64652D3A13893FD /* Pods_SmartMedia.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		414682CE1E20FFE500A71CD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41A5289E1DE6F9BF0041B675 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41A528A51DE6F9BF0041B675;
+			remoteInfo = SmartMedia;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		414682C91E20FFE500A71CD1 /* SmartMediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartMediaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		414682CB1E20FFE500A71CD1 /* SmartMediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartMediaTests.swift; sourceTree = "<group>"; };
+		414682CD1E20FFE500A71CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41A528A61DE6F9BF0041B675 /* SmartMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A528A91DE6F9BF0041B675 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41A528B01DE6F9BF0041B675 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +61,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		414682C61E20FFE500A71CD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41A528A31DE6F9BF0041B675 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,10 +80,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		414682C11E20FF2900A71CD1 /* Bean */ = {
+			isa = PBXGroup;
+			children = (
+				41A528D41DE875490041B675 /* Sound.swift */,
+			);
+			name = Bean;
+			sourceTree = "<group>";
+		};
+		414682CA1E20FFE500A71CD1 /* SmartMediaTests */ = {
+			isa = PBXGroup;
+			children = (
+				414682CB1E20FFE500A71CD1 /* SmartMediaTests.swift */,
+				414682CD1E20FFE500A71CD1 /* Info.plist */,
+			);
+			path = SmartMediaTests;
+			sourceTree = "<group>";
+		};
 		41A5289D1DE6F9BF0041B675 = {
 			isa = PBXGroup;
 			children = (
 				41A528A81DE6F9BF0041B675 /* SmartMedia */,
+				414682CA1E20FFE500A71CD1 /* SmartMediaTests */,
 				41A528A71DE6F9BF0041B675 /* Products */,
 				5715FB4175183192673A25C8 /* Pods */,
 				A79AE465893AB6E0EF97D9E7 /* Frameworks */,
@@ -73,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				41A528A61DE6F9BF0041B675 /* SmartMedia.app */,
+				414682C91E20FFE500A71CD1 /* SmartMediaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,6 +120,7 @@
 		41A528A81DE6F9BF0041B675 /* SmartMedia */ = {
 			isa = PBXGroup;
 			children = (
+				414682C11E20FF2900A71CD1 /* Bean */,
 				41A528BE1DE6FB950041B675 /* Extension */,
 				41A528BF1DE6FBD00041B675 /* View */,
 				41A528BD1DE6FB8E0041B675 /* Controller */,
@@ -88,7 +129,6 @@
 				41A528B21DE6F9BF0041B675 /* LaunchScreen.storyboard */,
 				41A528B51DE6F9BF0041B675 /* Info.plist */,
 				41A528BB1DE6FAEC0041B675 /* Localizable.strings */,
-				41A528D41DE875490041B675 /* Sound.swift */,
 			);
 			path = SmartMedia;
 			sourceTree = "<group>";
@@ -143,6 +183,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		414682C81E20FFE500A71CD1 /* SmartMediaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 414682D01E20FFE500A71CD1 /* Build configuration list for PBXNativeTarget "SmartMediaTests" */;
+			buildPhases = (
+				414682C51E20FFE500A71CD1 /* Sources */,
+				414682C61E20FFE500A71CD1 /* Frameworks */,
+				414682C71E20FFE500A71CD1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				414682CF1E20FFE500A71CD1 /* PBXTargetDependency */,
+			);
+			name = SmartMediaTests;
+			productName = SmartMediaTests;
+			productReference = 414682C91E20FFE500A71CD1 /* SmartMediaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		41A528A51DE6F9BF0041B675 /* SmartMedia */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41A528B81DE6F9BF0041B675 /* Build configuration list for PBXNativeTarget "SmartMedia" */;
@@ -169,10 +227,15 @@
 		41A5289E1DE6F9BF0041B675 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = antoine.soulier;
 				TargetAttributes = {
+					414682C81E20FFE500A71CD1 = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 41A528A51DE6F9BF0041B675;
+					};
 					41A528A51DE6F9BF0041B675 = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
@@ -193,11 +256,19 @@
 			projectRoot = "";
 			targets = (
 				41A528A51DE6F9BF0041B675 /* SmartMedia */,
+				414682C81E20FFE500A71CD1 /* SmartMediaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		414682C71E20FFE500A71CD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41A528A41DE6F9BF0041B675 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -263,6 +334,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		414682C51E20FFE500A71CD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				414682CC1E20FFE500A71CD1 /* SmartMediaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		41A528A21DE6F9BF0041B675 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,6 +357,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		414682CF1E20FFE500A71CD1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41A528A51DE6F9BF0041B675 /* SmartMedia */;
+			targetProxy = 414682CE1E20FFE500A71CD1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		41A528B21DE6F9BF0041B675 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -290,6 +377,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		414682D11E20FFE500A71CD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SmartMediaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.antoine.soulier.SmartMediaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartMedia.app/SmartMedia";
+			};
+			name = Debug;
+		};
+		414682D21E20FFE500A71CD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SmartMediaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.antoine.soulier.SmartMediaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartMedia.app/SmartMedia";
+			};
+			name = Release;
+		};
 		41A528B61DE6F9BF0041B675 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -414,6 +529,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		414682D01E20FFE500A71CD1 /* Build configuration list for PBXNativeTarget "SmartMediaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				414682D11E20FFE500A71CD1 /* Debug */,
+				414682D21E20FFE500A71CD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		41A528A11DE6F9BF0041B675 /* Build configuration list for PBXProject "SmartMedia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -57,6 +57,10 @@ class MediaController : UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
+    public class func multiply(a: Int, b: Int) -> Int {
+        return a * b
+    }
+    
     
     
     /*******************************/

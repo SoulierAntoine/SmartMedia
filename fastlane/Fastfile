@@ -1,0 +1,9 @@
+lane :test_de_fou do
+	UI.success "Cool c'est bon ça marche vieux"
+	scan(
+		project: "SmartMedia.xcodeproj",
+		scheme: "SmartMedia",
+		code_coverage: true
+	)
+	xcov()
+end
