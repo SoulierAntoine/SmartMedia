@@ -16,5 +16,6 @@ class Constants {
     class Operation {
         static let GET_SONG:String = "/api/audio/list"
         static let UPLOAD_SONG:String  = "/api/audio/upload"
+        static let COUNT_SONG:String = "/api/audio/count"
     }
 }

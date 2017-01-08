@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 extension UploadController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
     // Set the color of the text in the picker view
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         return NSAttributedString(string: files[row], attributes: [NSForegroundColorAttributeName: UIColor.white])
@@ -70,7 +69,6 @@ class UploadController : UIViewController {
         } catch let error as NSError {
             print(error.description)
         }
-        
         
         if (self.files.count > 0) {
             self.choosenFile = files[0]

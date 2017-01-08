@@ -1,4 +1,4 @@
-lane :SmartTest do
+lane :SmartTests do
 	UI.success "Success"
 	
 	scan(

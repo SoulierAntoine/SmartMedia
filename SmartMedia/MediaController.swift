@@ -141,10 +141,6 @@ class MediaController : UIViewController {
             }
         }
     }
-    
-    public class func multiply(a: Int, b: Int) -> Int {
-        return a * b
-    }
 
     
     
@@ -188,7 +184,30 @@ class MediaController : UIViewController {
             }
         }.resume();
     }
+
     
+    /* func pingServer() -> Int {
+        sendPing() { (responseCode) in
+            return responseCode
+        }
+    }
+    
+    func sendPing(callback: @escaping (Int) -> ()) {
+        let url = URL(string: Constants.DEFAULT_HOST + Constants.Operation.COUNT_SONG);
+        
+        URLSession.shared.dataTask(with: url!) { (d :Data?, r: URLResponse?, e: Error?) in
+            DispatchQueue.main.async {
+                if e == nil {
+                    let httpResponse = r as? HTTPURLResponse
+                    let responseCode:Int = httpResponse!.statusCode
+                        
+                    callback(responseCode)
+                } else {
+                    print("No internet connection")
+                }
+            }
+        }.resume();
+    } */
     
     @IBAction func addSoundClick(_ sender: Any) {
         let vc = UploadController()
@@ -222,7 +241,11 @@ class MediaController : UIViewController {
         if (self.player != nil) {
             if (self.player?.isPlaying)! {
                 self.player?.stop()
+            } else {
+                print("The player is not playing")
             }
+        } else {
+            print("The player has not been initialized")
         }
     }
 }

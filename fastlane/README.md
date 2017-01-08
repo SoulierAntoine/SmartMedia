@@ -5,9 +5,9 @@ fastlane documentation
 sudo gem install fastlane
 ```
 # Available Actions
-### test_de_fou
+### SmartTests
 ```
-fastlane test_de_fou
+fastlane SmartTests
 ```
 
 
