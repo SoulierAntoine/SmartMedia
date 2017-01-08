@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Pods_SmartMedia
+@testable import SmartMedia
 
 
 class SmartMediaTests: XCTestCase {
